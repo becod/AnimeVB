@@ -10,7 +10,7 @@
     
     <?php require_once('header.php');?>
     
-    <section class="content"> <?php require('content.php');?> </section>
+    <div class="content"> <?php require('content.php');?> </div>
     
     <?php require_once('footer.php');?>
 

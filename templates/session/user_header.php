@@ -4,7 +4,7 @@
             Welcome, <?php echo $_SESSION['user'] ?>
             <a id="user_insert"><i class="fa fa-plus" aria-hidden="true"></i></a>
             <a id="user_config" ><i class="fa fa-cog" aria-hidden="true"></i></a>
-            <a href="../../Hw/script/php/sign/signout.php"><i class="fa fa-power-off" aria-hidden="true"></i></a>
+            <a href="script/php/sign/signout.php"><i class="fa fa-power-off" aria-hidden="true"></i></a>
         </div>
     </nav>
 </header>
@@ -17,7 +17,7 @@
        <input type="text" name="title" placeholder="Anime's title"><br>
        <textarea name="plot" id="" placeholder="Write the anime's plot" cols="24" rows="10"></textarea><br>
        <input type="hidden" name="MAX_FILE_SIZE" value="30000" />
-       <input type="file" name="img" accept="image/*" >
+       <input type="file" name="img" id="img" accept="image/*" >
        <input type="submit" name="submit_insert" value="INSERT">
    </form>    
 </div>

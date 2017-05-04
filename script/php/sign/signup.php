@@ -11,5 +11,6 @@
         fwrite($file,"\n".$name.';'.$lname.';'.$mail.';'.$username.';'.$password);
         fclose($file);
         header('location: ../../../home.php');
+        
     }
 ?>

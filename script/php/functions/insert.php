@@ -6,7 +6,7 @@
 
 	if(isset($_POST["submit_insert"])){
         
-		move_uploaded_file(	$_FILES["img"]["tmp_name"],"../../../content/img".$_FILES["img"]["name"]);
+		move_uploaded_file(	$_FILES["img"]["tmp_name"],"../content/img".$_FILES["img"]["name"]);
 
 		$file=fopen("../../../content/info/content.txt", "r");
 		$id;
@@ -18,7 +18,7 @@
            
 		fclose($file);
 		$file=fopen("../../../content/info/content.txt", "a");
-			fwrite($file,"\n".$id.";".$_SESSION['user'].";".$title.";".$plot.";"."img/".$_FILES["img"]["name"]);
+			fwrite($file,"\n".$id.";".$_SESSION['user'].";".$title.";".$plot.";"."content/img/".$_FILES["img"]["name"]);
 			fclose($file);
 		header("location: ../../../home.php");
 	}
