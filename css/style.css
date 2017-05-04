@@ -1,0 +1,80 @@
+@import 'https://necolas.github.io/normalize.css/6.0.0/normalize.css';
+/* line 2, C:/xampp/htdocs/Hw/css/style.sass */
+*:before, *, *:after {
+  margin: 0px;
+  padding: 0px; }
+
+/* line 6, C:/xampp/htdocs/Hw/css/style.sass */
+.nav {
+  position: absolute;
+  background-color: grey;
+  width: 100%;
+  height: 70px; }
+  /* line 11, C:/xampp/htdocs/Hw/css/style.sass */
+  .nav > div {
+    position: relative;
+    float: right;
+    top: 50%;
+    transform: translateY(-50%); }
+    /* line 16, C:/xampp/htdocs/Hw/css/style.sass */
+    .nav > div > a {
+      border: solid 2px white;
+      border-radius: 4px;
+      background-color: #f1f1f1;
+      padding: 10px;
+      margin-left: 10px;
+      margin-right: 10px;
+      color: black;
+      text-decoration: none;
+      text-transform: uppercase; }
+      /* line 26, C:/xampp/htdocs/Hw/css/style.sass */
+      .nav > div > a:hover {
+        border: solid 2px black; }
+      /* line 28, C:/xampp/htdocs/Hw/css/style.sass */
+      .nav > div > a > i {
+        display: inherit; }
+
+/* line 31, C:/xampp/htdocs/Hw/css/style.sass */
+.header-box-one, .header-box-two {
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  height: 100vh; }
+  /* line 36, C:/xampp/htdocs/Hw/css/style.sass */
+  .header-box-one > form, .header-box-two > form {
+    width: 300px;
+    background-color: white;
+    margin: auto;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    padding: 30px; }
+    /* line 45, C:/xampp/htdocs/Hw/css/style.sass */
+    .header-box-one > form > div, .header-box-two > form > div {
+      text-align: right;
+      padding-bottom: 15px; }
+      /* line 48, C:/xampp/htdocs/Hw/css/style.sass */
+      .header-box-one > form > div > i, .header-box-two > form > div > i {
+        font-size: 20px;
+        color: #555555;
+        cursor: pointer; }
+    /* line 52, C:/xampp/htdocs/Hw/css/style.sass */
+    .header-box-one > form > input, .header-box-two > form > input {
+      margin-bottom: 15px;
+      padding: 5px;
+      outline: none; }
+      /* line 56, C:/xampp/htdocs/Hw/css/style.sass */
+      .header-box-one > form > input:last-child, .header-box-two > form > input:last-child {
+        margin-bottom: 10px;
+        cursor: pointer; }
+
+/* line 60, C:/xampp/htdocs/Hw/css/style.sass */
+.hiden {
+  display: none; }
+
+/* line 62, C:/xampp/htdocs/Hw/css/style.sass */
+.clear {
+  clear: both; }
+
+/*# sourceMappingURL=style.css.map */
