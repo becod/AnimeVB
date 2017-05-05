@@ -11,6 +11,7 @@
 
 .nav > div > a > i { display: inherit; }
 
+.header-box-one, .header-box-two { position: fixed; z-index: 1; background-color: rgba(0, 0, 0, 0.7); width: 100%; height: 100vh; }
 
 .header-box-one > form, .header-box-two > form { width: 300px; background-color: white; margin: auto; position: relative; top: 50%; transform: translateY(-50%); text-align: center; padding: 30px; }
 
@@ -22,6 +23,7 @@
 
 .header-box-one > form > input:last-child, .header-box-two > form > input:last-child { margin-bottom: 10px; cursor: pointer; }
 
+.content { top: 70px; position: relative; display: flex; flex-wrap: wrap; justify-content: space-around; text-align: center; }
 
 .content-box { width: 300px; height: 400px; margin: 15px; text-align: center; background-color: blue; }
 
