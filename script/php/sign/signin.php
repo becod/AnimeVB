@@ -1,11 +1,14 @@
 <?php
-    
-    $path ='../../logs/user.txt';
+    require_once ('../functions/db_connect.php');
+    $query = new PDOconnect;
+    $query -> function queryList("insert into `users`(username, password) values ( 'victor_69', 'badboy' ) ");
+
+    //$path ='../../logs/user.txt';
     $username = $_POST['user'];
     $password = $_POST['pass'];
 
     if (isset($username)&&isset($password)) {
-        $file=@fopen($path, 'r');
+        //$file=@fopen($path, 'r');
         while(!feof($file)){
             
             $line=fgets($file);
@@ -25,7 +28,7 @@
             }
         }
         $closeFile = fclose($file);    
-        header('location: ../../../home.php');
+       // header('location: ../../../home.php');
     }  
 
  
