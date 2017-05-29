@@ -1,13 +1,17 @@
 <?php
+    
+    $username = $_POST['user'];
+    $password = $_POST['pass'];
+
     require_once ('../functions/db_connect.php');
     $query = new PDOconnect;
-    $query -> function queryList("insert into `users`(username, password) values ( 'victor_69', 'badboy' ) ");
+    $query -> queryList("select `username`,`password` from `user` ",array ('where `username` like $username% ', $password) );
 
     //$path ='../../logs/user.txt';
     $username = $_POST['user'];
     $password = $_POST['pass'];
 
-    if (isset($username)&&isset($password)) {
+  /*  if (isset($username)&&isset($password)) {
         //$file=@fopen($path, 'r');
         while(!feof($file)){
             
@@ -29,7 +33,7 @@
         }
         $closeFile = fclose($file);    
        // header('location: ../../../home.php');
-    }  
+    }  */
 
  
 

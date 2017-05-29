@@ -1,5 +1,5 @@
 <?php
-    abstract class PDOconnect{
+    class PDOconnect{
         const USERNAME="root";
         const PASSWORD="";
         const HOST="localhost";
