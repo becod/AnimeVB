@@ -1,25 +1,16 @@
 <?php
-    
-    $username = $_POST['user'];
-    $password = $_POST['pass'];
-
     require_once ('../functions/db_connect.php');
-    $query = new PDOconnect;
-    $query -> queryList("select `username`,`password` from `user` ",array ('where `username` like $username% ', $password) );
 
-    //$path ='../../logs/user.txt';
     $username = $_POST['user'];
     $password = $_POST['pass'];
+    
+    
+ if (isset($username)&&isset($password)) {
+     
+    $query = new PDOconnect;
+    $query -> queryList("SELECT `user`,`password` FROM `user` WHERE `user` LIKE ':user' and `password` LIKE ':password'",array (':user' => $username, ':password' => $password));
 
-  /*  if (isset($username)&&isset($password)) {
-        //$file=@fopen($path, 'r');
-        while(!feof($file)){
-            
-            $line=fgets($file);
-            $array=explode(";", trim($line));
-            
-            echo $line;
-            if($array[3]==$username && $array[4]==$password){
+    if($array[3]==$username && $array[4]==$password){
                 session_start();
                 $_SESSION['name']= $array[0];
                 $_SESSION['lname']= $array[1];
