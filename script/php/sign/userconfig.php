@@ -1,14 +1,11 @@
 <?php
     session_start();
-    $path ='../../logs/user.txt';
+    $db = new PDOconnect;
+    $query = $db -> queryList("UPDATE `information` SET `name`='victor',`lastname`='domech',`user`='domech',`password`='benja',`email`='vic.doch@gmail.com' where `user` like :user and `password` like :password ",array (':user' => $username, ':password' => $password));
+    $result = $query->fetch(PDO::FETCH_OBJ);
 
-    if (isset(session_start())) {
-        $file=@fopen($path, 'r');
-        while(!feof($file)){
-            $line=fgets($file);
-            $array=explode(";", trim($line));
-            
-            if($array[3]==$username && $array[4]==$password){
+    
+    if($array[3]==$username && $array[4]==$password){
                 
                 $_SESSION['name']= $array[0];
                 $_SESSION['lname']= $array[1];

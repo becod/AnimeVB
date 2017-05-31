@@ -8,7 +8,7 @@
     $password = $_POST['pass'];
 
     $query = new PDOconnect;
-    $query -> queryList('Insert into information(name,lastname,user,password) values (:name, :lastname, :user, :password)', array(':name' => $name, ':lastname' => $lname, ':user' => $username, ':password' => $password));
+    $query -> queryList('Insert into information(name,lastname,user,password,email) values (:name, :lastname, :user, :password, :email)', array(':name' => $name, ':lastname' => $lname, ':user' => $username, ':password' => $password, ':email' => $mail));
     
     header('location: ../../../home.php');
 ?>
