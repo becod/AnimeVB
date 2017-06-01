@@ -22,7 +22,7 @@
    </form>    
 </div>
 <div id="config-box" class="header-box-two hiden">
-   <form action="script/php/sign/signup.php" method="post" >
+   <form action="script/php/sign/userconfig.php" method="post" >
       <div><i id="config-close" class="fa fa-close"></i></div>
       <input type="text" name="name" placeholder="Name" value="<?php echo $_SESSION['name']?>"><br>
       <input type="text" name="lname" placeholder="Lastname" value="<?php echo $_SESSION['lname']?>"><br>
