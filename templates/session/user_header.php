@@ -1,6 +1,12 @@
 <header>
     <nav class="nav">
         <div>
+           <a href="home.php"><img src="content/img/data/Anime-Logo.jpg" alt="Logo-Site"></a>
+       </div>
+       <!--<div>
+           <i class="fa fa-search" aria-hidden="true"></i>
+       </div>-->
+        <div>
             Welcome, <?php echo $_SESSION['user'] ?>
             <a id="user_insert"><i class="fa fa-plus" aria-hidden="true"></i></a>
             <a id="user_config" ><i class="fa fa-cog" aria-hidden="true"></i></a>

@@ -1,5 +1,11 @@
 <header>
     <nav class="nav">
+       <div>
+           <a href="home.php"><img src="content/img/data/Anime-Logo.jpg" alt="Logo-Site"></a>
+       </div>
+       <!--<div>
+           <i class="fa fa-search" aria-hidden="true"></i>
+       </div>-->
         <div>
             <a href="#" id="signin" >Sign In</a>
             <a href="#" id="signup">Sign Up</a>
