@@ -27,3 +27,24 @@ $(document).ready(function(){
       $("#config-box").toggleClass("hiden");
       });
 });
+
+
+// Retrieve the template data from the HTML (jQuery is used here).
+var template = $('#handlebars-demo').html();
+
+// Compile the template data into a function
+var templateScript = Handlebars.compile(template);
+
+var context = {
+  title: "My First Blog Post!",
+  author: {
+    id: 47,
+    name: "Yehuda Katz"
+  },
+  body: "My first post. Wheeeee!"
+};
+// html = 'My name is Ritesh Kumar. I am a developer.'
+var html = templateScript(context);
+
+// Insert the HTML code into the page
+$(document.body).append(html);

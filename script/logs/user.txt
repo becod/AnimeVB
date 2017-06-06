@@ -1,8 +1,0 @@
-Benjamin E.;Valencia;benyamin.valencia@gmail.com;ben_valencia;12345
-German ;Sanchez;ojosverdes@drivemecrazy.com;Iamabadboy;loveyou
-victor;domenech;victor@moslestoso.com;victor;123
-victor;domenech;victor@moslestoso.com;hola;123
-victor;domenech;victor@moslestoso.com;benjamin;123
-Benjamin E. Valencia;Valencia;benyamin.valencia@gmail.com;soilder_developer;Ce0197de-63760
-Benjamin;Valencia;Benvalencia@youtv.com;ben_valencia;admin
-Benjamin;Valencia;benyamin.valencia@gmail.com;ben_valencia;admin

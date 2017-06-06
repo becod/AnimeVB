@@ -1,0 +1,5 @@
+<footer>
+    <div>
+        Hola
+    </div>
+</footer>
