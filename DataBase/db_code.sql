@@ -5,7 +5,6 @@ CREATE TABLE information (
 	`id` INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     `name` VARCHAR(50) NOT NULL,
     `lastname` VARCHAR(50) NOT NULL,
-    `lastname` VARCHAR(50) NOT NULL,
     `user` VARCHAR(15) NOT NULL UNIQUE,
     `password` VARCHAR(15) NOT NULL,
     `email` VARCHAR(50)
@@ -21,18 +20,6 @@ CREATE TABLE `user` (
     `user` VARCHAR(15) NOT NULL,
     `password` VARCHAR(15) NOT NULL,
     FOREIGN KEY (id) REFERENCES information(id)
-);
-
-----------------------------
---- CREATING USER TABLE  ---
-----------------------------
-CREATE TABLE `anime` (
-	`id` INT NOT NULL AUTO_INCREMENT,
-    `name` VARCHAR(10) NOT NULL UNIQUE,
-    `about` VARCHAR(500) NOT NULL,
-    `img_url` VARCHAR(100) NOT NULL UNIQUE,
-    `user` VARCHAR(15),
-    FOREIGN KEY (user) REFERENCE user(user)
 );
 
 ---------------------------------
@@ -62,7 +49,7 @@ DELIMITER ;
 
 DELIMITER ;;
 CREATE TRIGGER `update_user` AFTER UPDATE ON `information`
-FOR EACH ROW BEGIN
+FOR EACH ROW
 BEGIN
 UPDATE `user` SET user.user = new.user,user.password = new.password where user.id like new.id;
 END

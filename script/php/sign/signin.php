@@ -12,10 +12,11 @@
     if($result -> user == $username && $result-> password ==$password){
         
         $db = new PDOconnect;
-        $query = $db -> queryList("select `name`,`lastname`,`user`,`password`,`email` from information where `user` like :user and `password` like :password ",array (':user' => $username, ':password' => $password));
+        $query = $db -> queryList("select `id`,`name`,`lastname`,`user`,`password`,`email` from information where `user` like :user and `password` like :password ",array (':user' => $username, ':password' => $password));
         $result = $query->fetch(PDO::FETCH_OBJ);
         
         session_start();
+        $_SESSION['id']= $result -> id;
         $_SESSION['name']= $result -> name;
         $_SESSION['lname']= $result -> lastname;
         $_SESSION['user'] = $result -> user;
