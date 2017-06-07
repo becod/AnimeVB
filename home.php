@@ -11,7 +11,7 @@
     
     <?php require_once('header.php');?>
     
-    <div class="content"> <?php require('content.php');?></div>
+    <!--<div class="content"> /*<?php /*require('content.php');*/?>*/</div>--->
     <div id="app" class="content"></div>
     
     <?php require_once('footer.php');?>
@@ -22,6 +22,9 @@
   crossorigin="anonymous"></script>
 <script 
     src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.js" ></script>
-<script src="script/js/script.js" type="text/javascript"></script>
+<script id="app-script" type="text/handelbars-template" src="templates/content/layout.js"></script>    
+<script src="script/js/script.js" type="text/javascript">
+   alert('Correct')
+    </script>
 </body>
 </html>
