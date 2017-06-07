@@ -1,15 +1,19 @@
 <?php 
+    require_once('script/php/functions/db_connect.php');
 
-    $file=fopen("content/info/content.txt", "r");
+    $db = new PDOconnect;
+    $query = $db -> queryList("select `id`,`name`,`about`,`img` from animeinfo",array ());
+    $result = $query->fetchAll(PDO::FETCH_OBJ);
 
-    while(!feof($file)){
-        $line=fgets($file);
-        list($id, $user, $title, $plot, $img) = explode(";",$line);
-        $infoMin = getSubstr($plot,250);
+    for($i=0; $i<count($result); $i++){
+        $id_anime = $result[$i] -> id;
+        $name_anime = $result[$i] -> name;
+        $about_anime = $result[$i] -> about;
+        $img_anime = $result[$i] -> img;
+        
+        $infoMin = getSubstr($about_anime,350);
         require('templates/content/layout.php');
     }
-    fclose($file);
-
 	function getSubstr($termino,$len){
 		$result = substr($termino, 0, $len);
 		$result.="...";

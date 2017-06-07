@@ -22,8 +22,8 @@
        <h2>Insert new content</h2><br>
        <input type="text" name="title" placeholder="Anime's title"><br>
        <textarea name="plot" id="" placeholder="Write the anime's plot" cols="24" rows="10"></textarea><br>
-       <input type="hidden" name="MAX_FILE_SIZE" value="30000" />
-       <input type="file" name="image" id="image" accept="image/*" >
+       <!--<input type="hidden"  name="MAX_FILE_SIZE" value="60000" />-->
+       <input type="file" name="image" id="image"  > <!-- accept="image/*" -->
        <input type="submit" name="submit_insert" value="INSERT">
    </form>    
 </div>
