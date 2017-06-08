@@ -31,3 +31,20 @@ $(document).ready(function(){
         alert(id);
     });
 });
+
+
+
+var source = $('#main').html();    
+
+var template = Handlebars.compile(source);    
+    
+ $.ajax({
+  type: 'GET',
+  url: 'content.php',
+  dataType: 'json'
+})
+    .done(function(data){
+     var html = template({'anime':data});
+     $('#mainc').html(html);
+ }); 
+    

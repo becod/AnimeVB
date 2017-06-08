@@ -5,8 +5,8 @@
     $query = $db -> queryList("select `id`,`name`,`about`,`img` from animeinfo",array ());
     $result = $query->fetchAll(PDO::FETCH_OBJ);
 
-    echo json_encode($result);
-    for($i=0; $i<count($result); $i++){
+    echo json_encode($result) ;
+    /*for($i=0; $i<count($result); $i++){
         $id_anime = $result[$i] -> id;
         $name_anime = $result[$i] -> name;
         $about_anime = $result[$i] -> about;
@@ -19,5 +19,5 @@
 		$result = substr($termino, 0, $len);
 		$result.="...";
 		return $result;
-	}
+	}*/
 ?>
