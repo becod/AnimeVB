@@ -26,4 +26,8 @@ $(document).ready(function(){
     $("#config-close").click(function(){
       $("#config-box").toggleClass("hiden");
       });
+    
+    $('.content-box').on('click', function(id){
+        alert(id);
+    });
 });

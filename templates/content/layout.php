@@ -1,5 +1,5 @@
  
- <div class="content-box">
+ <div id="<?php echo $id_anime?>" class="content-box ">
      <div>
          <img src="<?php echo $img_anime ?>" alt="<?php echo $name_anime ?>">
          <h3><?php echo $name_anime?></h3>
