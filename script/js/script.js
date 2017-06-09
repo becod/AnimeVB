@@ -31,12 +31,8 @@ $(document).ready(function(){
         alert(id);
     });
 });
-
-
-
-var source = $('#main').html();    
-
-var template = Handlebars.compile(source);    
+ 
+var template = Handlebars.templates['layout'];    
     
  $.ajax({
   type: 'GET',
@@ -45,6 +41,6 @@ var template = Handlebars.compile(source);
 })
     .done(function(data){
      var html = template({'anime':data});
-     $('#mainc').html(html);
+     $('#main').html(html);
  }); 
     

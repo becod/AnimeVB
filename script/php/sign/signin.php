@@ -12,7 +12,7 @@
     if($result -> user == $username && $result-> password ==$password){
         
         $db = new PDOconnect;
-        $query = $db -> queryList("select `id`,`name`,`lastname`,`user`,`password`,`email` from information where `user` like :user and `password` like :password ",array (':user' => $username, ':password' => $password));
+        $query = $db -> queryList("select `id`,`name`,`lastname`,`user`,`password`,`email` from information where `user` like 'ben_valencia' and `password` like 'admin' ",array (':user' => $username, ':password' => $password));
         $result = $query->fetch(PDO::FETCH_OBJ);
         
         session_start();
@@ -24,5 +24,5 @@
         $_SESSION['mail']= $result -> email;
         $_SESSION['status'] = 'Authenticated';                  
     }
-}   echo json_encode(session_encode());
+}   echo json_encode($result);
 ?>

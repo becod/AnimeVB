@@ -8,8 +8,7 @@
     <script
       src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script src="script/js/handlebars-v4.0.10.js" ></script>
-    
-    <!--<script src="templates/content/layout.js"></script>-->
+    <script src="templates/templates.js"></script> 
 </head>
 <body>
     
@@ -87,20 +86,11 @@
         </div>
     </script>
     
-    <div id="mainc" class="content"></div> 
-    <script id="main" type="text/x-handlebars-template">
-        {{#each anime}} 
-        <div class="content-box">
-             <div>
-                 <img src="{{this.img}}" alt="{{this.name}} ">
-                 <h3>{{this.name}}</h3>
-                 <p>{{this.about}}</p>
-             </div>
-        </div>
-        {{/each}} 
-    </script>
-    
-    <?php /*require_once('footer.php');*/?>
+    <div id="main" class="content"></div> 
+   
+<footer>
+    <div class="footer"></div>
+</footer>
  
 <script 
   src="script/js/script.js" 
@@ -113,7 +103,16 @@
 var source2 = $('#menu').html();    
 var template2 = Handlebars.compile(source2); 
 var html2 = template2();
-$('#menuc').html(html2);    
+$('#menuc').html(html2);
+    
+/*$.ajax({
+  type: 'GET',
+  url: 'php/sign/signin.php',
+  dataType: 'json'
+})
+    .done(function(data){
+     console.log(data);
+ });    */
     </script>    
 </body>
 </html>
