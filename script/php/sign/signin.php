@@ -24,5 +24,5 @@
         $_SESSION['mail']= $result -> email;
         $_SESSION['status'] = 'Authenticated';                  
     }
-}   header('location: ../../../home.php');
+}   echo json_encode(session_encode());
 ?>

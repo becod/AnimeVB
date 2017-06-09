@@ -3,9 +3,14 @@
 
     $db = new PDOconnect;
     $query = $db -> queryList("select `id`,`name`,`about`,`img` from animeinfo",array ());
-    $result = $query->fetchAll(PDO::FETCH_OBJ);
+    $result = $query->fetchAll(PDO::FETCH_ASSOC);
+    for($i=0; $i<count($result); $i++)
+    {
+        $result[$i]["about"] = utf8_encode($result[$i]["about"]);
+    }
+    echo json_encode($result);
 
-    echo json_encode($result) ;
+    
     /*for($i=0; $i<count($result); $i++){
         $id_anime = $result[$i] -> id;
         $name_anime = $result[$i] -> name;
