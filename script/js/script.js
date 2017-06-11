@@ -31,7 +31,8 @@ $(document).ready(function(){
         alert(id);
     });
 });
- 
+
+
 var template = Handlebars.templates['layout'];    
     
  $.ajax({
