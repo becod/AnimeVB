@@ -2,7 +2,7 @@
 --- CREATING INFORMATION TABLE  ---
 -----------------------------------
 CREATE TABLE information (
-	`id` INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	`id` BIGINT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     `name` VARCHAR(50) NOT NULL,
     `lastname` VARCHAR(50) NOT NULL,
     `user` VARCHAR(15) NOT NULL UNIQUE,
