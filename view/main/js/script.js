@@ -37,7 +37,7 @@ var template = Handlebars.templates['layout'];
     
  $.ajax({
   type: 'GET',
-  url: 'model/content.php',
+  url: 'core/model/content.php',
   dataType: 'json'
 })
     .done(function(data){
@@ -45,3 +45,24 @@ var template = Handlebars.templates['layout'];
      $('#main').html(html);
  }); 
     
+ 
+/*Loging*/
+function goLogin() {
+    var form = $('#signin-form').serialize();
+    $.ajax({ 
+        type: 'POST', 
+        url: 'core/controllers/signinController.php',
+        data: form
+    })
+        .done(function(data){
+         alert(data);
+    })
+        .fail(function(data){
+        alert('Error');
+    });
+}
+function runScriptLogin(e){
+    if (e.keyCode == 13){
+        goLogin();
+    }
+} 
