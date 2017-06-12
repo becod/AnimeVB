@@ -18,6 +18,6 @@
         else{
             print 'bad';
         }
-        header("location: ../../../home.php");
-	}
+        header("location: ../../../index.php");
+	}  header("location: ../../../index.php");
 ?>

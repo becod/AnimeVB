@@ -16,11 +16,11 @@ INSERT INTO `information`(`name`, `lastname`, `user`, `password`, `email`) VALUE
 --- CREATING ANIMEINFO TABLE  ---
 ---------------------------------
 CREATE TABLE `animeinfo`(
-    `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `name` varchar(50) NOT NULL,
-    `about` varchar(500) NOT NULL,
+    `id` BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `name` varchar(255) NOT NULL,
+    `about` varchar(1000) NOT NULL,
     `type` varchar(50),
-    `img` varchar(150) NOT NULL,
+    `img` varchar(250) NOT NULL,
     `id_user` INT NOT NULL,
     FOREIGN KEY (`id_user`) REFERENCES information(`id`)
 );

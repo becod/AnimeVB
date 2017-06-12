@@ -1,5 +1,5 @@
 <?php 
-    require_once('script/php/functions/db_connect.php');
+    require_once('db_connect.php');
 
     $db = new PDOconnect;
     $query = $db -> queryList("select `id`,`name`,`about`,`img` from animeinfo",array ());

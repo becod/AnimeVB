@@ -37,7 +37,7 @@ var template = Handlebars.templates['layout'];
     
  $.ajax({
   type: 'GET',
-  url: 'content.php',
+  url: 'model/content.php',
   dataType: 'json'
 })
     .done(function(data){
