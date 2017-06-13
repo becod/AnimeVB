@@ -55,7 +55,13 @@ function goLogin() {
         data: form
     })
         .done(function(data){
-         alert(data);
+        alert(data);
+        if( data == ''){
+            alert('Vacio data');
+        } else if ( data != ''){
+            alert(data);
+        }
+        
     })
         .fail(function(data){
         alert('Error');
