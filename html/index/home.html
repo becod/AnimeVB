@@ -10,10 +10,8 @@
     <script src="view/main/templates/templates.js"></script> 
 </head>
 <body>
-    
-    <?php /*require_once('header.php');*/?>
-    <header id="menuc" ></header>
-    <script id="menu" type="text/x-handlebars-template">
+    <header id="menu" ></header>
+    <script id="menu1" type="text/x-handlebars-template">
         <nav class="nav">
            <div>
                <a href="home.php"><img src="view/main/img/Anime-Logo.jpg" alt="Logo-Site"></a>
@@ -31,18 +29,18 @@
                <div><i id="signin-close" class="fa fa-close"></i></div>
                <input type="text" name="user" placeholder="Username"><br>
                <input type="password" name="pass" placeholder="Password"><br>
-               <input type="button" value="SIGN IN">
+               <input type="button" value="SIGN IN" onclick="goLogin()">
            </form>    
         </div>
         <div id="signup-box" class="header-box-two hiden">
-           <form action="script/php/sign/signup.php" method="post" >
+           <form id="signup-form" action="core/controllers/signupController.php" method="post" onkeypress="runScriptLogup(event)">
               <div><i id="signup-close" class="fa fa-close"></i></div>
               <input type="text" name="name" placeholder="Name"><br>
               <input type="text" name="lname" placeholder="Lastname"><br>
               <input type="text" name="mail" placeholder="E-mail"><br>
               <input type="text" name="user" placeholder="Username"><br>
               <input type="password" name="pass" placeholder="Password"><br>
-              <input type="submit" value="SIGN UP">     
+              <input type="button" value="SIGN UP" onclick="goLogup()">     
            </form>
         </div>
     </script>
@@ -55,7 +53,7 @@
                <i class="fa fa-search" aria-hidden="true"></i>
            </div>-->
             <div>
-                Welcome, {{<?php echo $_SESSION['user'] ?>}}
+                Welcome, {{this.user}}
                 <a id="user_insert"><i class="fa fa-plus" aria-hidden="true"></i></a>
                 <a id="user_config" ><i class="fa fa-cog" aria-hidden="true"></i></a>
                 <a href="script/php/sign/signout.php"><i class="fa fa-power-off" aria-hidden="true"></i></a>
@@ -75,11 +73,11 @@
         <div id="config-box" class="header-box-two hiden">
            <form action="script/php/sign/userconfig.php" method="post" >
               <div><i id="config-close" class="fa fa-close"></i></div>
-              <input type="text" name="name" placeholder="Name" value="{{<?php echo $_SESSION['name']?>}}"><br>
-              <input type="text" name="lname" placeholder="Lastname" value="{{<?php echo $_SESSION['lname']?>}}"><br>
-              <input type="text" name="mail" placeholder="E-mail" value="{{<?php echo $_SESSION['mail']?>}}"><br>
-              <input type="text" name="user" placeholder="Username" value="{{<?php echo $_SESSION['user']?>}}"><br>
-              <input type="password" name="pass" placeholder="Password" value="{{<?php echo $_SESSION['pass']?>}}"><br>
+              <input type="text" name="name" placeholder="Name" value="{{this.name}}"><br>
+              <input type="text" name="lname" placeholder="Lastname" value="{{this.lastname}}"><br>
+              <input type="text" name="mail" placeholder="E-mail" value="{{this.email}}"><br>
+              <input type="text" name="user" placeholder="Username" value="{{this.user}}"><br>
+              <input type="password" name="pass" placeholder="Password" value="{{this.password}}"><br>
               <input type="submit" value="SIGN UP">     
            </form>
         </div>
@@ -99,23 +97,7 @@
   type="text/javascript">
     </script>  
 <script type="text/javascript">
-  localStorage.setItem("lastname", "Smith");    
     
-
-var source2 = $('#menu').html();    
-var template2 = Handlebars.compile(source2); 
-var html2 = template2();
-$('#menuc').html(html2);
-/*
-$.ajax({
-  type: 'GET',
-  url: 'core/controllers/signin.php',
-  dataType: 'json',
-  data: ''    
-})
-    .done(function(data){
-     console.log(data);
- });    */
     </script>    
 </body>
 </html>

@@ -1,22 +1,29 @@
 <?php
-    require_once ('../functions/db_connect.php');
+    require_once ('../model/db_connect.php');
+    include('../core.php');
 
+if (isset($_POST['name'])&&isset($_POST['lname'])&&isset($_POST['mail'])&&isset($_POST['user'])&&isset($_POST['pass'])){
+    
     $name = $_POST['name'];
     $lname = $_POST['lname'];
-    $mail = $_POST['mail'];
-    $username = $_POST['user'];
-    $password = $_POST['pass'];
-
+    $mail = strtolower($_POST['mail']);
+    $username = strtolower($_POST['user']);
+    $password = strtolower($_POST['pass']);
+    
     $query = new PDOconnect;
     $query -> queryList('Insert into information(name,lastname,user,password,email) values (:name, :lastname, :user, :password, :email)', array(':name' => $name, ':lastname' => $lname, ':user' => $username, ':password' => $password, ':email' => $mail));
     if ($query == true ){
             session_start();
             $_SESSION['name']= $name;
-            $_SESSION['lname']= $lastname;
+            $_SESSION['lname']= $lname;
             $_SESSION['mail']= $mail;
             $_SESSION['user'] = $username;
             $_SESSION['pass']= $password;
-            $_SESSION['status'] = 'Authenticated';
+        echo json_encode();
+    }else{
+        header('location: '.URL_BASE.'index.php');
     } 
-    header('location: ../../../home.php');
+}else{
+    header('location: '.URL_BASE.'index.php');
+} header('location: '.URL_BASE.'index.php');
 ?>
