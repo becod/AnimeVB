@@ -2,6 +2,7 @@
     require_once ('../model/db_connect.php');
     include('../core.php');
 
+ 
 if (isset($_POST['name'])&&isset($_POST['lname'])&&isset($_POST['mail'])&&isset($_POST['user'])&&isset($_POST['pass'])){
     
     $name = $_POST['name'];
@@ -19,11 +20,13 @@ if (isset($_POST['name'])&&isset($_POST['lname'])&&isset($_POST['mail'])&&isset(
             $_SESSION['mail']= $mail;
             $_SESSION['user'] = $username;
             $_SESSION['pass']= $password;
-        echo json_encode();
+            
+        $json =  array('name' => $name, 'lastname' => $lname, 'user' =>$username, 'password'=> $password, 'email' => $mail);
+        echo json_encode($json);
     }else{
         header('location: '.URL_BASE.'index.php');
     } 
 }else{
     header('location: '.URL_BASE.'index.php');
-} header('location: '.URL_BASE.'index.php');
+}  
 ?>

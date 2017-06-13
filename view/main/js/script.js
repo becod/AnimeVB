@@ -31,21 +31,39 @@ $(document).ready(function(){
         alert(id);
     });
 });
-
+/**/
+/*Handlebars.getTemplate = function(name) {
+	if (Handlebars.templates === undefined || Handlebars.templates[name] === undefined) {
+		$.ajax({
+			url : '../templates/content/' + name + '.handlebars',
+			success : function(data) {
+				if (Handlebars.templates === undefined) {
+					Handlebars.templates = {};
+				}
+				Handlebars.templates[name] = Handlebars.compile(data);
+			},
+			async : false
+		});
+	}
+	return Handlebars.templates[name];
+};*/
 /*Menu Switch*/
-if (localStorage.getItem('data') == null){
-    var source1 = $('#menu1').html();    
-    var template1 = Handlebars.compile(source1); 
-    var html1 = template1();
-    $('#menu').html(html1);
+ 
+if (localStorage.getItem('data') == null){  
+    var template = Handlebars.getTemplate('header'); 
+    var html = template();
+    $('#menu').html(html);
 } else {
-    var info = JSON.parse(localStorage.getItem('data'));
-    var source2 = $('#menu2').html();    
-    var template2 = Handlebars.compile(source2); 
-    var html2 = template2(info);
+    var info =  JSON.parse(localStorage.getItem('data')) ;
+       
+    var template = Handlebars.getTemplate('header_user'); 
+    var html2 = template(info);
     $('#menu').html(html2);
 }
 
+var template = Handlebars.getTemplate('footer');
+var html3 = template();
+$('#footer').html(html3);
 /*Content*/
 var template = Handlebars.templates['layout'];    
     
@@ -103,25 +121,22 @@ function runScriptLogin(e){
 
 function goLogup() {
     var form = $('#signup-form').serialize();
-    alert(form)
     $.ajax({ 
         type: 'POST', 
         url: 'core/controllers/signupController.php',
         data: form
     })
-        .done(function(data){
-        /*if( data == ''){
+        .done(function(data){ 
+        if( data == ''){
             alert('Vacio data');
         } else if ( data != ''){
             var obj = JSON.parse(data),
-                id = obj.id,
                 name = obj.name,
                 lastname = obj.lastname,
                 user = obj.user,
                 password = obj.password,
                 email = obj.email;
             localStorage.setItem("data", data);
-            localStorage.setItem("id", id);
             localStorage.setItem("name", name);
             localStorage.setItem("lastname", lastname);
             localStorage.setItem("user", user);
@@ -129,7 +144,7 @@ function goLogup() {
             localStorage.setItem("email", email),
             
             location.reload();
-        }*/
+        } 
     })
         .fail(function(data){
         alert('Error');
@@ -140,3 +155,49 @@ function runScriptLogup(e){
         goLogup();
     }
 } 
+
+/* Log Out*/
+$('#user_signout').on('click', function(){
+    
+    $.ajax({ 
+        type: 'POST', 
+        url: 'core/controllers/signoutController.php',
+        data: {vul: 1}
+    })
+        .done(function(data){ 
+         if( data == 1){ 
+             
+            localStorage.removeItem('data');
+            localStorage.removeItem('name');
+            localStorage.removeItem('lastname');
+            localStorage.removeItem('user');
+            localStorage.removeItem('password');
+            localStorage.removeItem('email');
+            localStorage.removeItem('id'); 
+             
+            location.reload();
+             
+        } else if ( data != 1){
+            alert('false');
+        }  
+    })
+        .fail(function(data){
+        alert('Error');
+    });
+});
+
+Handlebars.getTemplate = function(name) {
+	if (Handlebars.templates === undefined || Handlebars.templates[name] === undefined) {
+		$.ajax({
+			url : 'content/' + name + '.handlebars',
+			success : function(data) {
+				if (Handlebars.templates === undefined) {
+					Handlebars.templates = {};
+				}
+				Handlebars.templates[name] = Handlebars.compile(data);
+			},
+			async : false
+		});
+	}
+	return Handlebars.templates[name];
+};

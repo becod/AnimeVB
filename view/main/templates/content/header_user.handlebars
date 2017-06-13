@@ -1,40 +1,36 @@
-<header>
-    <nav class="nav">
-        <div>
-           <a href="home.php"><img src="content/img/data/Anime-Logo.jpg" alt="Logo-Site"></a>
-       </div>
-       <!--<div>
-           <i class="fa fa-search" aria-hidden="true"></i>
-       </div>-->
-        <div>
-            Welcome, <?php echo $_SESSION['user'] ?>
-            <a id="user_insert"><i class="fa fa-plus" aria-hidden="true"></i></a>
-            <a id="user_config" ><i class="fa fa-cog" aria-hidden="true"></i></a>
-            <a href="script/php/sign/signout.php"><i class="fa fa-power-off" aria-hidden="true"></i></a>
-        </div>
+<nav class="nav">
+    <div>
+        <a href="home.php"><img src="view/main/img/Anime-Logo.jpg" alt="Logo-Site"></a>
+    </div>
+<!--<div>
+        <i class="fa fa-search" aria-hidden="true"></i>
+    </div>-->
+    <div>
+        Welcome, {{this.user}}
+        <a id="user_insert"><i class="fa fa-plus" aria-hidden="true"></i></a>
+        <a id="user_config" ><i class="fa fa-cog" aria-hidden="true"></i></a>
+        <a id="user_signout" ><i class="fa fa-power-off" aria-hidden="true"></i></a>
+    </div>    
     </nav>
-</header>
-
-
-<div id="insert-box" class="header-box-one hiden">
-   <form action="script/php/functions/insert.php" method="post" enctype="multipart/form-data">
-       <div><i id="insert-close" class="fa fa-close"></i></div>
-       <h2>Insert new content</h2><br>
-       <input type="text" name="title" placeholder="Anime's title"><br>
-       <textarea name="plot" id="" placeholder="Write the anime's plot" cols="24" rows="10"></textarea><br>
-       <!--<input type="hidden"  name="MAX_FILE_SIZE" value="60000" />-->
-       <input type="file" name="image" id="image"  > <!-- accept="image/*" -->
-       <input type="submit" name="submit_insert" value="INSERT">
-   </form>    
-</div>
-<div id="config-box" class="header-box-two hiden">
-   <form action="script/php/sign/userconfig.php" method="post" >
-      <div><i id="config-close" class="fa fa-close"></i></div>
-      <input type="text" name="name" placeholder="Name" value="<?php echo $_SESSION['name']?>"><br>
-      <input type="text" name="lname" placeholder="Lastname" value="<?php echo $_SESSION['lname']?>"><br>
-      <input type="text" name="mail" placeholder="E-mail" value="<?php echo $_SESSION['mail']?>"><br>
-      <input type="text" name="user" placeholder="Username" value="<?php echo $_SESSION['user']?>"><br>
-      <input type="password" name="pass" placeholder="Password" value="<?php echo $_SESSION['pass']?>"><br>
-      <input type="submit" value="SIGN UP">     
-   </form>
-</div>
+        <div id="insert-box" class="header-box-one hiden">
+            <form action="script/php/functions/insert.php" method="post" enctype="multipart/form-data">
+                <div><i id="insert-close" class="fa fa-close"></i></div>
+                <h2>Insert new content</h2><br>
+                <input type="text" name="title" placeholder="Anime's title"><br>
+                <textarea name="plot" id="" placeholder="Write the anime's plot" cols="24" rows="10"></textarea><br>
+            <!--<input type="hidden"  name="MAX_FILE_SIZE" value="60000" />-->
+                <input type="file" name="image" id="image"  > <!-- accept="image/*" -->
+                <input type="submit" name="submit_insert" value="INSERT">
+            </form>    
+        </div>
+        <div id="config-box" class="header-box-two hiden">
+            <form action="script/php/sign/userconfig.php" method="post" >
+                <div><i id="config-close" class="fa fa-close"></i></div>
+                <input type="text" name="name" placeholder="Name" value="{{this.name}}"><br>
+                <input type="text" name="lname" placeholder="Lastname" value="{{this.lastname}}"><br>
+                <input type="text" name="mail" placeholder="E-mail" value="{{this.email}}"><br>
+                <input type="text" name="user" placeholder="Username" value="{{this.user}}"><br>
+                <input type="password" name="pass" placeholder="Password" value="{{this.password}}"><br>
+                <input type="submit" value="SIGN UP">     
+            </form>
+        </div>

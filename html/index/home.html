@@ -11,93 +11,17 @@
 </head>
 <body>
     <header id="menu" ></header>
-    <script id="menu1" type="text/x-handlebars-template">
-        <nav class="nav">
-           <div>
-               <a href="home.php"><img src="view/main/img/Anime-Logo.jpg" alt="Logo-Site"></a>
-           </div>
-           <!--<div>
-               <i class="fa fa-search" aria-hidden="true"></i>
-           </div>-->
-            <div>
-                <a href="#" id="signin" >Sign In</a>
-                <a href="#" id="signup">Sign Up</a>
-            </div>
-        </nav>
-        <div id="signin-box" class="header-box-one hiden">
-           <form id="signin-form" action="core/controllers/signinController.php" method="post" onkeypress="runScriptLogin(event)" >
-               <div><i id="signin-close" class="fa fa-close"></i></div>
-               <input type="text" name="user" placeholder="Username"><br>
-               <input type="password" name="pass" placeholder="Password"><br>
-               <input type="button" value="SIGN IN" onclick="goLogin()">
-           </form>    
-        </div>
-        <div id="signup-box" class="header-box-two hiden">
-           <form id="signup-form" action="core/controllers/signupController.php" method="post" onkeypress="runScriptLogup(event)">
-              <div><i id="signup-close" class="fa fa-close"></i></div>
-              <input type="text" name="name" placeholder="Name"><br>
-              <input type="text" name="lname" placeholder="Lastname"><br>
-              <input type="text" name="mail" placeholder="E-mail"><br>
-              <input type="text" name="user" placeholder="Username"><br>
-              <input type="password" name="pass" placeholder="Password"><br>
-              <input type="button" value="SIGN UP" onclick="goLogup()">     
-           </form>
-        </div>
-    </script>
-    <script id="menu2" type="text/x-handlebars-template">
-        <nav class="nav">
-            <div>
-               <a href="home.php"><img src="view/main/img/Anime-Logo.jpg" alt="Logo-Site"></a>
-           </div>
-           <!--<div>
-               <i class="fa fa-search" aria-hidden="true"></i>
-           </div>-->
-            <div>
-                Welcome, {{this.user}}
-                <a id="user_insert"><i class="fa fa-plus" aria-hidden="true"></i></a>
-                <a id="user_config" ><i class="fa fa-cog" aria-hidden="true"></i></a>
-                <a href="script/php/sign/signout.php"><i class="fa fa-power-off" aria-hidden="true"></i></a>
-            </div>
-        </nav>
-        <div id="insert-box" class="header-box-one hiden">
-           <form action="script/php/functions/insert.php" method="post" enctype="multipart/form-data">
-               <div><i id="insert-close" class="fa fa-close"></i></div>
-               <h2>Insert new content</h2><br>
-               <input type="text" name="title" placeholder="Anime's title"><br>
-               <textarea name="plot" id="" placeholder="Write the anime's plot" cols="24" rows="10"></textarea><br>
-               <!--<input type="hidden"  name="MAX_FILE_SIZE" value="60000" />-->
-               <input type="file" name="image" id="image"  > <!-- accept="image/*" -->
-               <input type="submit" name="submit_insert" value="INSERT">
-           </form>    
-        </div>
-        <div id="config-box" class="header-box-two hiden">
-           <form action="script/php/sign/userconfig.php" method="post" >
-              <div><i id="config-close" class="fa fa-close"></i></div>
-              <input type="text" name="name" placeholder="Name" value="{{this.name}}"><br>
-              <input type="text" name="lname" placeholder="Lastname" value="{{this.lastname}}"><br>
-              <input type="text" name="mail" placeholder="E-mail" value="{{this.email}}"><br>
-              <input type="text" name="user" placeholder="Username" value="{{this.user}}"><br>
-              <input type="password" name="pass" placeholder="Password" value="{{this.password}}"><br>
-              <input type="submit" value="SIGN UP">     
-           </form>
-        </div>
-    </script>
     
-<div id="main" class="content"></div> 
+    <div id="main" class="content" ></div> 
    
-<footer>
-    <div class="footer">
-        <p>CopyRight &copy; 2017 - <spam>Ningun video se encuentra alojado en nuestros servidores.</spam></p>
-        <div><a href="#">Terminos y condiciones</a> <a href="#">Politica de Privacidad</a> <a href="#">Sobre AnimeB</a></div>
-    </div>
-</footer>
+    <footer id="footer" ></footer>
  
 <script 
   src="view/main/js/script.js" 
   type="text/javascript">
     </script>  
 <script type="text/javascript">
-    
+
     </script>    
 </body>
 </html>
