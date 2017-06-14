@@ -1,16 +1,17 @@
 <?php
-    class PDOconnect{
-        const USERNAME="root";
-        const PASSWORD="";
-        const HOST="localhost";
-        const DB="project";
 
-        private function getConnection(){
-            $username = self::USERNAME;
-            $password = self::PASSWORD;
-            $host = self::HOST;
-            $db = self::DB;
-            $connection = new PDO("mysql:dbname=$db;host=$host", $username, $password);
+class PDOconnect{
+    const USERNAME= 'root';
+    const PASSWORD= '';
+    const HOST= 'localhost';
+    const DB= 'project';
+
+    private function getConnection(){
+        $username = self::USERNAME;
+        $password = self::PASSWORD;
+        $host = self::HOST;
+        $db = self::DB;
+        $connection = new PDO("mysql:dbname=$db;host=$host", $username, $password);
             return $connection;
         }
         public function queryList($sql, $args){

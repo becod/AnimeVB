@@ -1,4 +1,4 @@
-$(document).ready(function(){
+function navEffects(){
     $("#signin").click(function(){
       $("#signin-box").toggleClass("hiden");
       });
@@ -30,40 +30,41 @@ $(document).ready(function(){
     $('.content-box').on('click', function(id){
         alert(id);
     });
-});
-/**/
-/*Handlebars.getTemplate = function(name) {
-	if (Handlebars.templates === undefined || Handlebars.templates[name] === undefined) {
-		$.ajax({
-			url : '../templates/content/' + name + '.handlebars',
-			success : function(data) {
-				if (Handlebars.templates === undefined) {
-					Handlebars.templates = {};
-				}
-				Handlebars.templates[name] = Handlebars.compile(data);
-			},
-			async : false
-		});
-	}
-	return Handlebars.templates[name];
-};*/
-/*Menu Switch*/
- 
-if (localStorage.getItem('data') == null){  
-    var template = Handlebars.getTemplate('header'); 
-    var html = template();
-    $('#menu').html(html);
-} else {
-    var info =  JSON.parse(localStorage.getItem('data')) ;
-       
-    var template = Handlebars.getTemplate('header_user'); 
-    var html2 = template(info);
-    $('#menu').html(html2);
 }
 
+/*Menu Switch*/
+$.ajax({
+  type: 'POST',
+  url: 'core/controllers/sessionController.php' 
+})
+    .done(function(data){
+    if(data == 1){
+        if (localStorage.getItem('data') == null){  
+            var template = Handlebars.getTemplate('header'); 
+            var html = template();
+            $('#menu').html(html);
+            navEffects();
+        } else {
+            var info =  JSON.parse(localStorage.getItem('data')) ;
+            var template = Handlebars.getTemplate('header_user'); 
+            var html2 = template(info);
+            $('#menu').html(html2);
+            navEffects();
+            goLogout();
+}
+     }else if (data == 0) {
+        var template = Handlebars.getTemplate('header'); 
+        var html = template();
+        $('#menu').html(html);
+         navEffects();
+     }
+ }); 
+
+/*Footer*/
 var template = Handlebars.getTemplate('footer');
 var html3 = template();
 $('#footer').html(html3);
+
 /*Content*/
 var template = Handlebars.templates['layout'];    
     
@@ -157,6 +158,7 @@ function runScriptLogup(e){
 } 
 
 /* Log Out*/
+function goLogout(){
 $('#user_signout').on('click', function(){
     
     $.ajax({ 
@@ -185,7 +187,7 @@ $('#user_signout').on('click', function(){
         alert('Error');
     });
 });
-
+}
 Handlebars.getTemplate = function(name) {
 	if (Handlebars.templates === undefined || Handlebars.templates[name] === undefined) {
 		$.ajax({

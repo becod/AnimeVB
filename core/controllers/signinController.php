@@ -11,13 +11,13 @@ if(isset($_POST['user']) && isset($_POST['pass'])){
     if (isset($username)&&isset($password)){ 
     
         $db = new PDOconnect;
-        $query = $db -> queryList("select `user`,`password` from information where `user` like :user and `password` like :password ",array (':user' => $username, ':password' => $password));
+        $query = $db -> queryList("select `user`,`password` from information where `user` like :user and `password` like :password LIMIT 1",array (':user' => $username, ':password' => $password));
         $result = $query->fetch(PDO::FETCH_OBJ);
 
         if($result != null) {
             if($result-> user == $username && $result-> password == $password){
                 $db = new PDOconnect;
-                $query = $db -> queryList("select `id`,`name`,`lastname`,`user`,`password`,`email` from information where `user` like 'ben_valencia' and `password` like 'admin' ",array (':user' => $username, ':password' => $password));
+                $query = $db -> queryList("select `id`,`name`,`lastname`,`user`,`password`,`email` from information where `user` like :user and `password` like :password LIMIT 1",array (':user' => $username, ':password' => $password));
                 $result = $query->fetch(PDO::FETCH_OBJ);
 
                 session_start();
