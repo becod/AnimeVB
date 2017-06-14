@@ -2,8 +2,7 @@
     require_once ('db_connect.php');
 
  	session_start();
-
-	if(isset($_POST["submit_insert"])){
+ 
         
         $title=$_POST["title"];
         $about= $_POST["plot"];
@@ -17,7 +16,5 @@
         }
         else{
             print 'bad';
-        }
-        header("location: ../../../index.php");
-	}  header("location: ../../../index.php");
+        } 
 ?>

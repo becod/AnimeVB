@@ -13,24 +13,24 @@
     </div>    
     </nav>
         <div id="insert-box" class="header-box-one hiden">
-            <form id="insert-form" action="script/php/functions/insert.php" method="post" enctype="multipart/form-data">
+            <form id="insert-form" method="post" enctype="multipart/form-data" onkeypress="runScriptInsert(event)">
                 <div><i id="insert-close" class="fa fa-close"></i></div>
                 <h2>Insert new content</h2><br>
                 <input type="text" name="title" placeholder="Anime's title"><br>
                 <textarea name="plot" id="" placeholder="Write the anime's plot" cols="24" rows="10"></textarea><br>
             <!--<input type="hidden"  name="MAX_FILE_SIZE" value="60000" />-->
                 <input type="file" name="image" id="image"  > <!-- accept="image/*" -->
-                <input type="submit" name="submit_insert" value="INSERT">
+                <input type="button" name="submit_insert" value="INSERT" onclick="goInsert()">
             </form>    
         </div>
         <div id="config-box" class="header-box-two hiden">
-            <form action="script/php/sign/userconfig.php" method="post" >
+            <form id="config-form" method="post" onkeypress="runScriptConfig(event)">
                 <div><i id="config-close" class="fa fa-close"></i></div>
                 <input type="text" name="name" placeholder="Name" value="{{this.name}}"><br>
                 <input type="text" name="lname" placeholder="Lastname" value="{{this.lastname}}"><br>
                 <input type="text" name="mail" placeholder="E-mail" value="{{this.email}}"><br>
                 <input type="text" name="user" placeholder="Username" value="{{this.user}}"><br>
                 <input type="password" name="pass" placeholder="Password" value="{{this.password}}"><br>
-                <input type="submit" value="SIGN UP">     
+                <input type="button" value="SIGN UP" onclick="goConfig()">     
             </form>
         </div>

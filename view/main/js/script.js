@@ -1,3 +1,19 @@
+Handlebars.getTemplate = function(name) {
+	if (Handlebars.templates === undefined || Handlebars.templates[name] === undefined) {
+		$.ajax({
+			url : 'content/' + name + '.handlebars',
+			success : function(data) {
+				if (Handlebars.templates === undefined) {
+					Handlebars.templates = {};
+				}
+				Handlebars.templates[name] = Handlebars.compile(data);
+			},
+			async : false
+		});
+	}
+	return Handlebars.templates[name];
+};
+
 function navEffects(){
     $("#signin").click(function(){
       $("#signin-box").toggleClass("hiden");
@@ -78,7 +94,7 @@ var template = Handlebars.templates['layout'];
      $('#main').html(html);
  });
 
-/*Loging*/
+/* Log In */
 function goLogin() {
     var form = $('#signin-form').serialize();
     $.ajax({ 
@@ -118,7 +134,7 @@ function runScriptLogin(e){
     }
 } 
 
-/*LogUp*/
+/* LogUp */
 
 function goLogup() {
     var form = $('#signup-form').serialize();
@@ -156,8 +172,7 @@ function runScriptLogup(e){
         goLogup();
     }
 } 
-
-/* Log Out*/
+/* Log Out */
 function goLogout(){
 $('#user_signout').on('click', function(){
     
@@ -187,19 +202,29 @@ $('#user_signout').on('click', function(){
         alert('Error');
     });
 });
+} 
+/* Insert Item */
+function goInsert() {
+    var form = $('#insert-form').serialize();
+    $.ajax({ 
+        type: 'POST', 
+        url: 'core/controllers/insertController.php',
+        data: form
+    })
+        .done(function(data){ 
+        if( data == ''){
+            alert('Vacio data');
+        } else if ( data != ''){
+            alert('Lleno')
+        } 
+    })
+        .fail(function(data){
+        alert('Error');
+    });
 }
-Handlebars.getTemplate = function(name) {
-	if (Handlebars.templates === undefined || Handlebars.templates[name] === undefined) {
-		$.ajax({
-			url : 'content/' + name + '.handlebars',
-			success : function(data) {
-				if (Handlebars.templates === undefined) {
-					Handlebars.templates = {};
-				}
-				Handlebars.templates[name] = Handlebars.compile(data);
-			},
-			async : false
-		});
-	}
-	return Handlebars.templates[name];
-};
+
+function runScriptInsert(e){
+    if (e.keyCode == 13){
+        goInsert();
+    }
+} 
