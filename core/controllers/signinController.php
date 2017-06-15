@@ -1,6 +1,7 @@
 <?php
-    require_once ('../model/db_connect.php');
     include('../core.php');
+    require_once ('../model/db_connect.php');
+    
 
 if(isset($_POST['user']) && isset($_POST['pass'])){
     

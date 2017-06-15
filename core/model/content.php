@@ -1,4 +1,5 @@
-<?php 
+<?php
+    include('../core.php');
     require_once('db_connect.php');
 
     $db = new PDOconnect;

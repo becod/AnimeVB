@@ -1,10 +1,11 @@
-<?php
+<?php 
 
 class PDOconnect{
-    const USERNAME= 'root';
-    const PASSWORD= '';
-    const HOST= 'localhost';
-    const DB= 'project';
+    
+    const HOST= CON_HOST;
+    const DB= CON_DB;
+    const USERNAME= CON_USERNAME;
+    const PASSWORD= CON_PASSWORD;
 
     private function getConnection(){
         $username = self::USERNAME;

@@ -1,38 +1,4 @@
-function navEffects(){
-    $("#signin").click(function(){
-      $("#signin-box").toggleClass("hiden");
-      });
-    $("#signin-close").click(function(){
-      $("#signin-box").toggleClass("hiden");
-      });
-    
-    $("#signup").click(function(){
-      $("#signup-box").toggleClass("hiden");
-      });
-    $("#signup-close").click(function(){
-      $("#signup-box").toggleClass("hiden");
-      });
-    
-    $("#user_insert").click(function(){
-      $("#insert-box").toggleClass("hiden");
-      });
-    $("#insert-close").click(function(){
-      $("#insert-box").toggleClass("hiden");
-      });
-    
-     $("#user_config").click(function(){
-      $("#config-box").toggleClass("hiden");
-      });
-    $("#config-close").click(function(){
-      $("#config-box").toggleClass("hiden");
-      });
-    
-    $('.content-box').on('click', function(id){
-        alert(id);
-    });
-}
-
-/*Menu Switch*/
+/**Menu Switch**/
 $.ajax({
   type: 'POST',
   url: 'core/controllers/sessionController.php' 
@@ -58,27 +24,21 @@ $.ajax({
         $('#menu').html(html);
          navEffects();
      }
- }); 
+ });
 
-/*Footer*/
-var template = Handlebars.getTemplate('footer');
-var html3 = template();
-$('#footer').html(html3);
-
-/*Content*/
-var template = Handlebars.templates['layout'];    
-    
+/**Content**/
  $.ajax({
   type: 'GET',
   url: 'core/model/content.php',
   dataType: 'json'
 })
     .done(function(data){
+     var template = Handlebars.getTemplate('layout'); 
      var html = template({'anime':data});
      $('#main').html(html);
  });
 
-/*Loging*/
+/**LogIn**/
 function goLogin() {
     var form = $('#signin-form').serialize();
     $.ajax({ 
@@ -118,8 +78,7 @@ function runScriptLogin(e){
     }
 } 
 
-/*LogUp*/
-
+/**LogUp**/
 function goLogup() {
     var form = $('#signup-form').serialize();
     $.ajax({ 
@@ -157,7 +116,7 @@ function runScriptLogup(e){
     }
 } 
 
-/* Log Out*/
+/**LogOut**/
 function goLogout(){
 $('#user_signout').on('click', function(){
     
@@ -188,18 +147,3 @@ $('#user_signout').on('click', function(){
     });
 });
 }
-Handlebars.getTemplate = function(name) {
-	if (Handlebars.templates === undefined || Handlebars.templates[name] === undefined) {
-		$.ajax({
-			url : 'content/' + name + '.handlebars',
-			success : function(data) {
-				if (Handlebars.templates === undefined) {
-					Handlebars.templates = {};
-				}
-				Handlebars.templates[name] = Handlebars.compile(data);
-			},
-			async : false
-		});
-	}
-	return Handlebars.templates[name];
-};
