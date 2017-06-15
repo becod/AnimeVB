@@ -147,7 +147,7 @@ $('#user_signout').on('click', function(){
 }
 /* Insert Item */
 function goInsert() { 
-    $('#insert-form').preventDefault();
+    
     var formq = $('#insert-form').serializeArray();
     var form = new FormData($('#insert-form') );
     $.ajax({ 
