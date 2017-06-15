@@ -16,6 +16,7 @@ $.ajax({
             var html2 = template(info);
             $('#menu').html(html2);
             navEffects();
+            goLogout();
         }
      }else if (data == 0) {
         var template = Handlebars.getTemplate('header'); 
@@ -114,6 +115,7 @@ function runScriptLogup(e){
     }
 }
 /**Log Out**/ 
+function goLogout(){
 $('#user_signout').on('click', function(){
     
     $.ajax({ 
@@ -142,19 +144,25 @@ $('#user_signout').on('click', function(){
         alert('Error');
     });
 }); 
+}
 /* Insert Item */
-function goInsert() {
-    var form = $('#insert-form').serialize();
+function goInsert() { 
+    $('#insert-form').preventDefault();
+    var formq = $('#insert-form').serializeArray();
+    var form = new FormData($('#insert-form') );
     $.ajax({ 
         type: 'POST', 
         url: 'core/controllers/insertController.php',
-        data: form
+        data: form,
+        processData: false,  
+        contentType: false
     })
         .done(function(data){ 
         if( data == ''){
             alert('Vacio data');
         } else if ( data != ''){
-            alert('Lleno')
+            alert('Lleno');
+            alert(data);
         } 
     })
         .fail(function(data){
