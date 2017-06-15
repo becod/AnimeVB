@@ -1,3 +1,4 @@
+<<<<<<< HEAD:view/main/js/script.js
 Handlebars.getTemplate = function(name) {
 	if (Handlebars.templates === undefined || Handlebars.templates[name] === undefined) {
 		$.ajax({
@@ -49,6 +50,9 @@ function navEffects(){
 }
 
 /*Menu Switch*/
+=======
+/**Menu Switch**/
+>>>>>>> origin/master:view/main/js/ajaxScript.js
 $.ajax({
   type: 'POST',
   url: 'core/controllers/sessionController.php' 
@@ -74,27 +78,25 @@ $.ajax({
         $('#menu').html(html);
          navEffects();
      }
- }); 
+ });
 
-/*Footer*/
-var template = Handlebars.getTemplate('footer');
-var html3 = template();
-$('#footer').html(html3);
-
-/*Content*/
-var template = Handlebars.templates['layout'];    
-    
+/**Content**/
  $.ajax({
   type: 'GET',
   url: 'core/model/content.php',
   dataType: 'json'
 })
     .done(function(data){
+     var template = Handlebars.getTemplate('layout'); 
      var html = template({'anime':data});
      $('#main').html(html);
  });
 
+<<<<<<< HEAD:view/main/js/script.js
 /* Log In */
+=======
+/**LogIn**/
+>>>>>>> origin/master:view/main/js/ajaxScript.js
 function goLogin() {
     var form = $('#signin-form').serialize();
     $.ajax({ 
@@ -134,8 +136,12 @@ function runScriptLogin(e){
     }
 } 
 
+<<<<<<< HEAD:view/main/js/script.js
 /* LogUp */
 
+=======
+/**LogUp**/
+>>>>>>> origin/master:view/main/js/ajaxScript.js
 function goLogup() {
     var form = $('#signup-form').serialize();
     $.ajax({ 
@@ -172,7 +178,12 @@ function runScriptLogup(e){
         goLogup();
     }
 } 
+<<<<<<< HEAD:view/main/js/script.js
 /* Log Out */
+=======
+
+/**LogOut**/
+>>>>>>> origin/master:view/main/js/ajaxScript.js
 function goLogout(){
 $('#user_signout').on('click', function(){
     
@@ -202,6 +213,7 @@ $('#user_signout').on('click', function(){
         alert('Error');
     });
 });
+<<<<<<< HEAD:view/main/js/script.js
 } 
 /* Insert Item */
 function goInsert() {
@@ -228,3 +240,6 @@ function runScriptInsert(e){
         goInsert();
     }
 } 
+=======
+}
+>>>>>>> origin/master:view/main/js/ajaxScript.js
