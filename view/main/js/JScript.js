@@ -28,12 +28,6 @@ function navEffects(){
       });
 }
 
-/**Footer**/
-var template = Handlebars.getTemplate('footer');
-var html3 = template();
-$('#footer').html(html3);
-
-
 Handlebars.getTemplate = function(name) {
 	if (Handlebars.templates === undefined || Handlebars.templates[name] === undefined) {
 		$.ajax({
@@ -49,3 +43,10 @@ Handlebars.getTemplate = function(name) {
 	}
 	return Handlebars.templates[name];
 };
+
+
+/**Footer**/
+var template = Handlebars.getTemplate('footer');
+var html3 = template();
+$('#footer').html(html3);
+

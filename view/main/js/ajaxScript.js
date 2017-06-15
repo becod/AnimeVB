@@ -1,58 +1,4 @@
-<<<<<<< HEAD:view/main/js/script.js
-Handlebars.getTemplate = function(name) {
-	if (Handlebars.templates === undefined || Handlebars.templates[name] === undefined) {
-		$.ajax({
-			url : 'content/' + name + '.handlebars',
-			success : function(data) {
-				if (Handlebars.templates === undefined) {
-					Handlebars.templates = {};
-				}
-				Handlebars.templates[name] = Handlebars.compile(data);
-			},
-			async : false
-		});
-	}
-	return Handlebars.templates[name];
-};
-
-function navEffects(){
-    $("#signin").click(function(){
-      $("#signin-box").toggleClass("hiden");
-      });
-    $("#signin-close").click(function(){
-      $("#signin-box").toggleClass("hiden");
-      });
-    
-    $("#signup").click(function(){
-      $("#signup-box").toggleClass("hiden");
-      });
-    $("#signup-close").click(function(){
-      $("#signup-box").toggleClass("hiden");
-      });
-    
-    $("#user_insert").click(function(){
-      $("#insert-box").toggleClass("hiden");
-      });
-    $("#insert-close").click(function(){
-      $("#insert-box").toggleClass("hiden");
-      });
-    
-     $("#user_config").click(function(){
-      $("#config-box").toggleClass("hiden");
-      });
-    $("#config-close").click(function(){
-      $("#config-box").toggleClass("hiden");
-      });
-    
-    $('.content-box').on('click', function(id){
-        alert(id);
-    });
-}
-
-/*Menu Switch*/
-=======
 /**Menu Switch**/
->>>>>>> origin/master:view/main/js/ajaxScript.js
 $.ajax({
   type: 'POST',
   url: 'core/controllers/sessionController.php' 
@@ -70,8 +16,7 @@ $.ajax({
             var html2 = template(info);
             $('#menu').html(html2);
             navEffects();
-            goLogout();
-}
+        }
      }else if (data == 0) {
         var template = Handlebars.getTemplate('header'); 
         var html = template();
@@ -91,12 +36,8 @@ $.ajax({
      var html = template({'anime':data});
      $('#main').html(html);
  });
-
-<<<<<<< HEAD:view/main/js/script.js
-/* Log In */
-=======
-/**LogIn**/
->>>>>>> origin/master:view/main/js/ajaxScript.js
+ 
+/**Log In**/
 function goLogin() {
     var form = $('#signin-form').serialize();
     $.ajax({ 
@@ -135,13 +76,7 @@ function runScriptLogin(e){
         goLogin();
     }
 } 
-
-<<<<<<< HEAD:view/main/js/script.js
-/* LogUp */
-
-=======
-/**LogUp**/
->>>>>>> origin/master:view/main/js/ajaxScript.js
+/**Log Up**/
 function goLogup() {
     var form = $('#signup-form').serialize();
     $.ajax({ 
@@ -177,14 +112,8 @@ function runScriptLogup(e){
     if (e.keyCode == 13){
         goLogup();
     }
-} 
-<<<<<<< HEAD:view/main/js/script.js
-/* Log Out */
-=======
-
-/**LogOut**/
->>>>>>> origin/master:view/main/js/ajaxScript.js
-function goLogout(){
+}
+/**Log Out**/ 
 $('#user_signout').on('click', function(){
     
     $.ajax({ 
@@ -212,9 +141,7 @@ $('#user_signout').on('click', function(){
         .fail(function(data){
         alert('Error');
     });
-});
-<<<<<<< HEAD:view/main/js/script.js
-} 
+}); 
 /* Insert Item */
 function goInsert() {
     var form = $('#insert-form').serialize();
@@ -239,7 +166,6 @@ function runScriptInsert(e){
     if (e.keyCode == 13){
         goInsert();
     }
-} 
-=======
-}
->>>>>>> origin/master:view/main/js/ajaxScript.js
+};
+     
+ 
