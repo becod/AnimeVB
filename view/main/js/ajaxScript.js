@@ -148,12 +148,14 @@ $('#user_signout').on('click', function(){
 /* Insert Item */
 function goInsert() { 
     
-    var formq = $('#insert-form').serializeArray();
-    var form = new FormData($('#insert-form') );
+    /*var formq = $('#insert-form').serializeArray();*/
+    /*var form = new FormData($('#insert-form') );*/
+    var image = $("#image")[0].files[0].name;
+    var thi = this;
     $.ajax({ 
         type: 'POST', 
         url: 'core/controllers/insertController.php',
-        data: form,
+        data: new FormData(this),
         processData: false,  
         contentType: false
     })
