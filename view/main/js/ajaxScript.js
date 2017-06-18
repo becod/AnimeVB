@@ -150,20 +150,21 @@ function goInsert() {
     
     /*var formq = $('#insert-form').serializeArray();*/
     /*var form = new FormData($('#insert-form') );*/
-    var image = $("#image")[0].files[0].name;
-    var thi = this;
+    /*var imageone = $("#image").serializeArray(); 
+    var image = $("#image")[0].files[0].name;*/
+    var data = new FormData($('#insert-form')[0]);
     $.ajax({ 
         type: 'POST', 
         url: 'core/controllers/insertController.php',
-        data: new FormData(this),
+        data: data,
         processData: false,  
         contentType: false
     })
         .done(function(data){ 
         if( data == ''){
-            alert('Vacio data');
+           alert(data);
         } else if ( data != ''){
-            alert('Lleno');
+             
             alert(data);
         } 
     })
