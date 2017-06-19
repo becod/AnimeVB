@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto|Raleway')
 
 *:before,*,*:after
+    box-sizing: border-box
     margin: 0px
     padding: 0px
 .body
@@ -106,7 +107,11 @@
                 margin-bottom: 10px
                 cursor: pointer
 
-            
+.slider-content
+    max-width: 1250px
+    height: 550px
+    margin: auto
+    overflow: hidden
 .content
     background-color: #fff
     max-width: 1250px
@@ -115,7 +120,7 @@
     flex-wrap: wrap
     justify-content: space-around
     text-align: center
-    padding-top: 5%
+    padding-top: 3%
     padding-bottom: 10%
     min-height: 100vh
 .content-box

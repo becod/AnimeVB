@@ -161,11 +161,11 @@ function goInsert() {
         contentType: false
     })
         .done(function(data){ 
-        if( data == ''){
-           alert(data);
-        } else if ( data != ''){
+        if( data == 1){
+           location.reload();
+        } else if ( data != 1){
              
-            alert(data);
+            alert('Falso');
         } 
     })
         .fail(function(data){
