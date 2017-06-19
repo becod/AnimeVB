@@ -246,6 +246,29 @@
   padding-bottom: 5%;
 }
 
+.content-anime {
+  justify-content: initial;
+}
+
+.content-anime > h2 {
+  position: absolute;
+  top: 300px;
+  left: 50%;
+  transform: translateX(-20%);
+}
+
+.content-anime > p {
+  width: 991px;
+  margin: auto;
+}
+
+.box-anime {
+  width: 250px;
+  height: 370px;
+  position: relative;
+  left: 100px;
+}
+
 .hiden {
   display: none;
 }

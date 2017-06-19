@@ -3,7 +3,6 @@
 }
 html, body {
   height: 100%;
-  overflow: hidden;
 }
 
 svg {
@@ -92,7 +91,6 @@ svg {
 }
 
 .slider {
-  z-index: 1;
   position: relative;
   height: 100%;
 }
