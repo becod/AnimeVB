@@ -16,7 +16,10 @@ svg {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  cursor: all-scroll;
+  cursor: -webkit-grab;
+}
+.slider-container:active{
+    cursor: -webkit-grabbing;
 }
 
 .slider-control {
