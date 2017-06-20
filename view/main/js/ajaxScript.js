@@ -148,10 +148,6 @@ $('#user_signout').on('click', function(){
 /* Insert Item */
 function goInsert() { 
     
-    /*var formq = $('#insert-form').serializeArray();*/
-    /*var form = new FormData($('#insert-form') );*/
-    /*var imageone = $("#image").serializeArray(); 
-    var image = $("#image")[0].files[0].name;*/
     var data = new FormData($('#insert-form')[0]);
     $.ajax({ 
         type: 'POST', 

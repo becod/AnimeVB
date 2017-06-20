@@ -244,7 +244,7 @@ svg {
     left: 0;
     bottom: 0;
     width: 100%;
-    height: 20rem;
+    height: 15rem;
     text-align: center;
     -webkit-transform: translateY(50%);
             transform: translateY(50%);
@@ -263,8 +263,8 @@ svg {
 }
 @media (max-width: 991px) {
   .slide__text-heading {
-    line-height: 20rem;
-    font-size: 3rem;
+    line-height: 15rem;
+    font-size: 2.5rem;
   }
 }
 .slide__text-desc {

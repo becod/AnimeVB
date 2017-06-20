@@ -9,7 +9,7 @@ if (isset($_POST['name'])&&isset($_POST['lname'])&&isset($_POST['mail'])&&isset(
     $lname = $_POST['lname'];
     $mail = strtolower($_POST['mail']);
     $username = strtolower($_POST['user']);
-    $password = strtolower($_POST['pass']);
+    $password = $_POST['pass'];
     
     $query = new PDOconnect;
     $query -> queryList('Insert into information(name,lastname,user,password,email) values (:name, :lastname, :user, :password, :email)', array(':name' => $name, ':lastname' => $lname, ':user' => $username, ':password' => $password, ':email' => $mail));
@@ -24,9 +24,9 @@ if (isset($_POST['name'])&&isset($_POST['lname'])&&isset($_POST['mail'])&&isset(
         $json =  array('name' => $name, 'lastname' => $lname, 'user' =>$username, 'password'=> $password, 'email' => $mail);
         echo json_encode($json);
     }else{
-        header('location: '.URL_BASE.'index.php');
+        header('location: '.URL_BASE.'?view=index');
     } 
 }else{
-    header('location: '.URL_BASE.'index.php');
+    header('location: '.URL_BASE.'?view=index');
 }  
 ?>

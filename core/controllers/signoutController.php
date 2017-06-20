@@ -10,11 +10,11 @@ if(isset($_POST['vul'])){
         
     } else if($vulean == 0){
         echo 0;
-        header('location: '.URL_BASE.'index.php');
+        header('location: '.URL_BASE.'?view=index');
     } else{
-        header('location: '.URL_BASE.'index.php');
+        header('location: '.URL_BASE.'?view=index');
     }
 }else{
-    header('location: '.URL_BASE.'index.php');
+    header('location: '.URL_BASE.'?view=index');
 }   
 ?>

@@ -3,19 +3,23 @@
   <div class="slider-control right"></div>
   <ul class="slider-pagi"></ul>
   <div class="slider">
-    <div class="slide slide-0 active">
-      <div class="slide__bg"></div>
+ {{#each slide }}  
+    <div class="slide slide-{{Variable que cuente}} active">
+      <div class="slide__bg" style="background-image: url('{{this.img}}')"></div>
       <div class="slide__content">
         <svg class="slide__overlay" viewBox="0 0 720 405" preserveAspectRatio="xMaxYMax slice">
           <path class="slide__overlay-path" d="M0,0 145,0 390,405 0,405" />
         </svg>
         <div class="slide__text">
-          <h2 class="slide__text-heading">Project name 1</h2>
-          <p class="slide__text-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio veniam minus illo debitis nihil animi facere, doloremque voluptate tempore quia. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio veniam minus illo debitis nihil animi facere, doloremque voluptate tempore quia.</p>
-          <a class="slide__text-link">Project link</a>
+          <h2 class="slide__text-heading">{{this.title}}</h2>
+          <p class="slide__text-desc">{{this.about}}</p>
+          <a href="{{this.link}}" class="slide__text-link">Read more</a>
         </div>
       </div>
     </div>
+{{/each}}  
+  
+    <!-- Que uno sea solo active y que genere el resto -->
     <div class="slide slide-1 ">
       <div class="slide__bg"></div>
       <div class="slide__content">

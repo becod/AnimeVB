@@ -10,4 +10,6 @@
     } else {
         echo 0;
     }
+
+// Que compare en la base de datos si existe el usuario
 ?> 
