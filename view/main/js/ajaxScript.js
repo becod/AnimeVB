@@ -35,6 +35,7 @@ $.ajax({
      var template = Handlebars.getTemplate('slider'); 
      var html = template({'slide':data});
      $('#slider-content').html(html);
+     slideLoad();
  });
 /**Content**/
 $.ajax({
