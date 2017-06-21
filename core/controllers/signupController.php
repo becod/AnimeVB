@@ -1,5 +1,4 @@
 <?php
-    require_once ('../model/db_connect.php');
     include('../core.php');
 
  
@@ -10,6 +9,7 @@ if (isset($_POST['name'])&&isset($_POST['lname'])&&isset($_POST['mail'])&&isset(
     $mail = strtolower($_POST['mail']);
     $username = strtolower($_POST['user']);
     $password = $_POST['pass'];
+    
     
     $query = new PDOconnect;
     $query -> queryList('Insert into information(name,lastname,user,password,email) values (:name, :lastname, :user, :password, :email)', array(':name' => $name, ':lastname' => $lname, ':user' => $username, ':password' => $password, ':email' => $mail));

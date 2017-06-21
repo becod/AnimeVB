@@ -25,9 +25,19 @@ $.ajax({
          navEffects();
      }
  });
-
+/**Slider**/
+$.ajax({
+  type: 'GET',
+  url: 'core/model/sliderContModel.php',
+  dataType: 'json'
+})
+    .done(function(data){
+     var template = Handlebars.getTemplate('slider'); 
+     var html = template({'slide':data});
+     $('#slider-content').html(html);
+ });
 /**Content**/
- $.ajax({
+$.ajax({
   type: 'GET',
   url: 'core/model/content.php',
   dataType: 'json'

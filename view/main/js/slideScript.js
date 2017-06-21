@@ -1,4 +1,4 @@
-$(document).ready(function() {
+function slideLoad() {
   
   var $slider = $(".slider"),
       $slideBGs = $(".slide__bg"),
@@ -11,6 +11,11 @@ $(document).ready(function() {
       autoSlideDelay = 7000,
       $pagination = $(".slider-pagi");
   
+  function addActive() {
+      $('div.slide:first').addClass('active');
+  }   
+  addActive();
+    
   function createBullets() {
     for (var i = 0; i < numOfSlides+1; i++) {
       var $li = $("<li class='slider-pagi__elem'></li>");
@@ -120,4 +125,4 @@ $(document).ready(function() {
     changeSlides();
   });
   
-});
+}
