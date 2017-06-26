@@ -1,9 +1,10 @@
 <?php 
 //CONECTION DATA
-define('CON_HOST','localhost');
-define('CON_DB','project');
-define('CON_USERNAME','root');
-define('CON_PASSWORD','');
+define('CON_HOST','sql8.freemysqlhosting.net');
+define('CON_PORT', '3306');
+define('CON_DB','sql8182127');
+define('CON_USERNAME','sql8182127');
+define('CON_PASSWORD','kmNJIEcIaM');
 define('CON_UTF','');
 
 
@@ -11,6 +12,7 @@ define('CON_UTF','');
 define('HTML_DIR','html');
 define('URL_BASE', 'http://localhost.org/phpExam/');
 
+define('NUM_SLIDE', 5);
 
 //GLOBALS
 include('model/db_connect.php');

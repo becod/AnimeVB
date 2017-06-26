@@ -8,7 +8,7 @@ CREATE TABLE information (
     `user` VARCHAR(15) NOT NULL UNIQUE,
     `password` VARCHAR(15) NOT NULL,
     `email` VARCHAR(50)
-);
+) ENGINE = InnoDB DEFAULT CHARSET = UTF8;
 
 INSERT INTO `information`(`name`, `lastname`, `user`, `password`, `email`) VALUES ('Benjamin','Valencia','ben_valencia','admin','benyamin.ak@hotmail.com');
 
@@ -21,9 +21,9 @@ CREATE TABLE `animeinfo`(
     `about` varchar(1000) NOT NULL,
     `type` varchar(50),
     `img` varchar(250) NOT NULL,
-    `id_user` INT NOT NULL,
+    `id_user` BIGINT NOT NULL,
     FOREIGN KEY (`id_user`) REFERENCES information(`id`)
-);
+) ENGINE = InnoDB DEFAULT CHARSET = UTF8;
 
 -----------------------------------------------------------------------
 --- Trigger to introduce the user from infromation into user table  ---

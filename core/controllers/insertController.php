@@ -1,7 +1,5 @@
 <?php
     include('../core.php');
-    require_once ('../model/db_connect.php');
-
  	session_start();
  
         
