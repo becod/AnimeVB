@@ -12,7 +12,7 @@ if (isset($_POST['name'])&&isset($_POST['lname'])&&isset($_POST['mail'])&&isset(
     
     
     $query = new PDOconnect;
-    $query -> queryList('Insert into information(name,lastname,user,password,email) values (:name, :lastname, :user, :password, :email)', array(':name' => $name, ':lastname' => $lname, ':user' => $username, ':password' => $password, ':email' => $mail));
+    $query -> queryList('Insert into information(name,lastname,user,password,email) values (:name, :lastname, :user, :password, :email)', array(':name' => $name, ':lastname' => $lname, ':user' => $username, ':password' => sha1($password), ':email' => $mail));
     if ($query == true ){
             session_start();
             $_SESSION['name']= $name;

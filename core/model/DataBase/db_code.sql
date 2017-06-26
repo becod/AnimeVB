@@ -1,13 +1,18 @@
 -----------------------------------
 --- CREATING INFORMATION TABLE  ---
 -----------------------------------
-CREATE TABLE information (
-	`id` BIGINT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    `name` VARCHAR(50) NOT NULL,
-    `lastname` VARCHAR(50) NOT NULL,
-    `user` VARCHAR(15) NOT NULL UNIQUE,
-    `password` VARCHAR(15) NOT NULL,
-    `email` VARCHAR(50)
+CREATE TABLE avb_users (
+	`ID` BIGINT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    `user_name` VARCHAR(50) NOT NULL,
+    `user_lastname` VARCHAR(50) NOT NULL,
+    `user_gender` VARCHAR(50) NOT NULL,
+    `user_datebirth` date(50) NOT NULL,
+    `user_about` TEXT(50),
+    `user_img` VARCHAR(50) NOT NULL,
+    `user_login` VARCHAR(15) NOT NULL UNIQUE,
+    `user_password` VARCHAR(50) NOT NULL,
+    `user_email` VARCHAR(100).
+    `user_status` INT(1)
 ) ENGINE = InnoDB DEFAULT CHARSET = UTF8;
 
 INSERT INTO `information`(`name`, `lastname`, `user`, `password`, `email`) VALUES ('Benjamin','Valencia','ben_valencia','admin','benyamin.ak@hotmail.com');
@@ -15,24 +20,24 @@ INSERT INTO `information`(`name`, `lastname`, `user`, `password`, `email`) VALUE
 ---------------------------------
 --- CREATING ANIMEINFO TABLE  ---
 ---------------------------------
-CREATE TABLE `animeinfo`(
-    `id` BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `name` varchar(255) NOT NULL,
-    `about` varchar(1000) NOT NULL,
-    `type` varchar(50),
-    `img` varchar(250) NOT NULL,
-    `id_user` BIGINT NOT NULL,
-    FOREIGN KEY (`id_user`) REFERENCES information(`id`)
+CREATE TABLE `avb_posts`(
+    `ID` BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `post_title` TEXT NOT NULL,
+    `post_content` TEXT NOT NULL,
+    `post_type` varchar(50) ,
+    `post_img` varchar(250) NOT NULL,
+    `post_author` BIGINT NOT NULL,
+    FOREIGN KEY (`post_author`) REFERENCES avb_users(`ID`)
 ) ENGINE = InnoDB DEFAULT CHARSET = UTF8;
 
 -----------------------------------------------------------------------
 --- Trigger to introduce the user from infromation into user table  ---
 -----------------------------------------------------------------------
 DELIMITER ;;
-CREATE TRIGGER `insert_id_user` AFTER INSERT ON `animeinfo`
+CREATE TRIGGER `insert_author` AFTER INSERT ON `avb_posts`
  FOR EACH ROW BEGIN
-INSERT INTO `animeinfo` (animeinfo.id_user)
-VALUES (new.id);
+INSERT INTO `avb_posts` (animeinfo.post_author)
+VALUES (new.ID);
 END
 ;;
 DELIMITER ;
