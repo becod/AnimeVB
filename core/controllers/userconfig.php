@@ -12,7 +12,7 @@
     if(isset($_SESSION)){
         
         $db = new PDOconnect;
-        $query = $db -> queryList("UPDATE `information` SET `name`= :name,`lastname`= :lastname,`user`= :user,`password`= :password,`email`= :mail where `user` like :usercooki",array (':name' => $name, ':lastname' => $lastname, ':user' => $username, ':password' => $password, ':mail' => $mail, ':usercooki' => $_SESSION['user']));
+        $query = $db -> queryList("UPDATE `avb_users` SET `user_name`= :name,`user_lastname`= :lastname,`user_login`= :user,`user_password`= :password,`user_email`= :mail where `user_login` like :usercooki",array (':name' => $name, ':lastname' => $lastname, ':user' => $username, ':password' => sha1($password), ':mail' => $mail, ':usercooki' => $_SESSION['user']));
 
         if ($query == true ){
             $_SESSION['name']= $name;
@@ -20,7 +20,6 @@
             $_SESSION['mail']= $mail;
             $_SESSION['user'] = $username;
             $_SESSION['pass']= $password;
-            $_SESSION['status'] = 'Authenticated';
         }
-} header('location: ../../home.php');
+} header('location: '.URL_BASE.'?view=index');
 ?>

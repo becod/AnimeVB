@@ -2,12 +2,13 @@
     include('../core.php');
 
     $db = new PDOconnect;
-    $query = $db -> queryList("select `id`,`name`,`about`,`img` from animeinfo",array ());
-    $result = $query->fetchAll(PDO::FETCH_ASSOC);
+    $query = $db -> queryList("select `ID`,`post_title`,`post_content`,`post_type`,`post_img` from avb_posts",array ());
+    $result = $query -> fetch(PDO::FETCH_OBJ);
+    /*$result = $query->fetchAll(PDO::FETCH_ASSOC);
     for($i=0; $i<count($result); $i++)
     {
         $result[$i]["about"] = utf8_encode($result[$i]["about"]);
-    }
+    }*//
     echo json_encode($result);
 
     

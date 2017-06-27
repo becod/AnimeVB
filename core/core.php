@@ -5,14 +5,14 @@ define('CON_PORT', '3306');
 define('CON_DB','sql8182127');
 define('CON_USERNAME','sql8182127');
 define('CON_PASSWORD','kmNJIEcIaM');
-define('CON_UTF','');
+define('CON_UTF','UTF8');
 
 
 
 define('HTML_DIR','html');
 define('URL_BASE', 'http://localhost.org/phpExam/');
 
-define('NUM_SLIDE', 5);
+define('NUM_SLIDE', '5');
 
 //GLOBALS
 include('model/db_connect.php');
