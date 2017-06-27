@@ -5,15 +5,15 @@
     <div class="slider">
     {{#each slide }}   
         <div class="slide slide-{{@index}}">
-            <div class="slide__bg" style="background-image: url({{this.img}})"></div>
+            <div class="slide__bg" style="background-image: url({{this.post_img}})"></div>
             <div class="slide__content">
                 <svg class="slide__overlay" viewBox="0 0 720 405" preserveAspectRatio="xMaxYMax slice">
                     <path class="slide__overlay-path" d="M0,0 145,0 390,405 0,405" />
                 </svg>
                 <div class="slide__text">
-                    <h2 class="slide__text-heading">{{this.name}}</h2>
-                    <p class="slide__text-desc">{{this.about}}</p>
-                    <a href="{{this.link}}" class="slide__text-link">Read more</a>
+                    <h2 class="slide__text-heading">{{this.post_title}}</h2>
+                    <p class="slide__text-desc">{{this.post_content}}</p>
+                    <a href="{{this.id}}" class="slide__text-link">Read more</a>
                 </div>
             </div>
         </div>

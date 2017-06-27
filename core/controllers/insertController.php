@@ -4,7 +4,7 @@
 
     //Cambiar los posts por  $_POST["post_title"] & $_POST["post_content"]
     $title= $_POST["title"];
-    $content= $_POST["plot"];
+    $content= $_POST["content"];
     $file= $_FILES["image"]["name"];
     $img = "content/anime/".$file;
                       
