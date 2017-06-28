@@ -11,7 +11,7 @@ if(isset($_POST['user']) && isset($_POST['pass'])){
     if (isset($username)&&isset($password)){ 
  
                 $db = new PDOconnect;
-                $query = $db -> queryList("select `ID`,`user_name`,`user_lastname`,`user_login`,`user_email` ,`user_status` from avb_users where `user_login` like :user and `user_ password` like :password LIMIT 1",array (':user' => $username, ':password' => sha1($password)));
+                $query = $db -> queryList("SELECT `ID`,`user_name`,`user_lastname`,`user_login`,`user_email`,`user_status` FROM avb_users WHERE (`user_login` like :user or `user_email` like :user) and `user_password` like :password LIMIT 1",array (':user' => $username, ':password' => sha1($password)));
                 $result = $query->fetch(PDO::FETCH_OBJ);
 
                 session_start();
@@ -25,9 +25,9 @@ if(isset($_POST['user']) && isset($_POST['pass'])){
 
                 echo json_encode($result);
             } else {
-                header ('Location: '.URL_BASE.'index.php');
+                header ('Location: '.URL_BASE.'?view=index');
             }
         } else {
-         header ('Location: '.URL_BASE.'index.php');
+         header ('Location: '.URL_BASE.'?view=index');
      }
 ?>

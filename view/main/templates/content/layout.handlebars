@@ -1,4 +1,5 @@
-{{#each anime}} 
+{{#each anime}}
+<a href="?view=anime&anime={{this.ID}}" target="_blank">       
         <div class="content-box">
              <div>
                  <img src="{{this.post_img}}" alt="{{this.post_title}} ">
@@ -6,4 +7,5 @@
                  <p>{{this.post_content}}</p>
              </div>
         </div>
- {{/each}} 
+</a>         
+{{/each}} 
