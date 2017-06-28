@@ -13,34 +13,11 @@
     <header id="menu" ></header>
     
     <div id="content-anime-div" class="content content-anime"></div>
-    <script id="content-anime" type="text/x-handlebars-template" >
-        <h2>{{this.post_title}}</h2>
-        <div class="content-box box-anime">
-             <div>
-                 <img src="{{this.post_img}}" alt="{{this.post_title}}">
-             </div>
-        </div>
-        <p>{{this.post_content}}</p>
-    </script>
+    
     
     <footer id="footer" ></footer>
+    
 <script src="view/main/js/JScript.js" type="text/javascript"></script>
-<script src="view/main/js/ajaxScript.js" type="text/javascript"></script>   
-<script>
-    var url = $(location).attr('search'),
-        str = url.split('&');
-    $.ajax({
-      type: 'GET',
-      url: 'core/model/animeModel.php',
-      data: str[1],        
-      dataType: 'json'
-    })
-        .done(function(data){
-        var source   = $("#content-anime").html();
-        var template = Handlebars.compile(source); 
-        var html7 = template(data);
-        $('#content-anime-div').html(html7);
-     });
-</script> 
+<script src="view/main/js/ajaxScript.js" type="text/javascript"></script>
 </body>
 </html>

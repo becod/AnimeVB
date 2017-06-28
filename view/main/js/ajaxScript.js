@@ -186,4 +186,17 @@ function runScriptInsert(e){
     }
 };
      
- 
+/*Anime Page*/
+var url = $(location).attr('search'),
+    str = url.split('&');
+$.ajax({
+    type: 'GET',
+    url: 'core/model/animeModel.php',
+    data: str[1],        
+    dataType: 'json'
+})
+    .done(function(data){
+        var template = Handlebars.getTemplate('anime'); 
+        var html = template(data);
+        $('#content-anime-div').html(html);
+     });
