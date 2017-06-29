@@ -12,7 +12,7 @@ define('CON_UTF','UTF8');
 define('HTML_DIR','html');
 define('URL_BASE', 'http://localhost.org/phpExam/');
 
-define('NUM_SLIDE', '5');
+define('NUM_SLIDE', '7');
 
 //GLOBALS
 include('model/db_connect.php');
