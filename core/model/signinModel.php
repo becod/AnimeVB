@@ -1,4 +1,4 @@
-<?phh
+<?php
     
     $username = $username;
     $password = sha1($password);
